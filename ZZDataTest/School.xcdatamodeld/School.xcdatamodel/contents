@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15400" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Student" representedClassName="Student" syncable="YES" codeGenerationType="class">
+        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="course" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="sex" optional="YES" attributeType="String"/>
+        <relationship name="courseTeacher" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Teacher" inverseName="teach" inverseEntity="Teacher"/>
+    </entity>
+    <entity name="Teacher" representedClassName="Teacher" syncable="YES" codeGenerationType="class">
+        <attribute name="course" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="teach" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Student" inverseName="courseTeacher" inverseEntity="Student"/>
+    </entity>
+    <fetchRequest name="ageFetch" entity="Student" predicateString="age &lt; 16"/>
+    <fetchRequest name="idFetch" entity="Student" predicateString="id != 2"/>
+    <elements>
+        <element name="Student" positionX="1027.5546875" positionY="-769.31640625" width="137.43359375" height="133"/>
+        <element name="Teacher" positionX="840.62890625" positionY="-774.90234375" width="128" height="103"/>
+    </elements>
+</model>
